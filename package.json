@@ -1,0 +1,37 @@
+{
+	"name": "da-shop",
+	"version": "1.0.0",
+	"description": "Lice Call project from Developer Akademie",
+	"keywords": [
+		"SPA",
+		"plain",
+		"JavaScript",
+		"shop"
+	],
+	"homepage": "https://github.com/Developer-Akademie-Frontendkurs/call-project.da-shop#readme",
+	"bugs": {
+		"url": "https://github.com/Developer-Akademie-Frontendkurs/call-project.da-shop/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Developer-Akademie-Frontendkurs/call-project.da-shop.git"
+	},
+	"license": "MIT",
+	"author": "Developer Akademie Students",
+	"type": "commonjs",
+	"main": "index.js",
+	"scripts": {
+		"dev": "tailwindcss -i ./input.css -o ./src/styles.css --watch",
+		"backend": "json-server --watch src/backend/db.json",
+		"build": "tailwindcss -i ./input.css -o ./src/styles.css"
+	},
+	"dependencies": {
+		"@tailwindcss/cli": "^4.1.13",
+		"json-server": "^1.0.0-beta.3",
+		"tailwindcss": "^4.1.13"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.2.2",
+		"daisyui": "^5.1.7"
+	}
+}
