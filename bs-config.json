@@ -1,0 +1,8 @@
+{
+	"server": {
+		"baseDir": "./src",
+		"routes": {
+			"/products/:id": "index.html"
+		}
+	}
+}

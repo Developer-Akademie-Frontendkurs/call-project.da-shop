@@ -1,6 +1,7 @@
 {
     "products": [
         {
+            "id": 0,
             "product_name": "Leder-Sneaker",
             "product_short_description": "Bequeme und stylische Sneaker für jeden Tag.",
             "product_description": "Diese hochwertigen Leder-Sneaker vereinen Komfort und Stil. Das Obermaterial aus echtem Leder sorgt für Langlebigkeit und einen edlen Look. Die flexible Gummisohle bietet optimalen Halt und Dämpfung. Perfekt für den Alltag, das Büro oder die Freizeit.",
@@ -8,6 +9,7 @@
             "price": 129.99
         },
         {
+            "id": 1,
             "product_name": "Bio-Baumwoll-T-Shirt",
             "product_short_description": "Weiches und nachhaltiges T-Shirt aus 100% Bio-Baumwolle.",
             "product_description": "Unser klassisches T-Shirt wird aus reiner Bio-Baumwolle hergestellt und bietet ein superweiches Tragegefühl. Der moderne Schnitt passt zu jedem Outfit. Es ist atmungsaktiv, hautfreundlich und wurde unter fairen Bedingungen produziert. Ein Must-Have für jede Garderobe.",
@@ -15,6 +17,7 @@
             "price": 29.99
         },
         {
+            "id": 2,
             "product_name": "Wollfilzhut",
             "product_short_description": "Eleganter Hut aus 100% Wollfilz.",
             "product_description": "Dieser stilvolle Hut ist der perfekte Begleiter für kühle Tage. Gefertigt aus hochwertigem Wollfilz, schützt er nicht nur vor Wind und Wetter, sondern setzt auch ein modisches Statement. Das zeitlose Design macht ihn zu einem vielseitigen Accessoire für Damen und Herren.",

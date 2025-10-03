@@ -21,13 +21,14 @@
 	"type": "commonjs",
 	"main": "index.js",
 	"scripts": {
-		"dev": "tailwindcss -i ./input.css -o ./src/styles.css --watch",
-		"backend": "json-server --watch src/backend/db.json",
-		"build": "tailwindcss -i ./input.css -o ./src/styles.css"
+		"dev": "concurrently \"tailwindcss -i ./input.css -o ./src/styles.css --watch\" \"lite-server\" \"json-server --watch ./src/backend/db.json\"",
+	"build": "tailwindcss -i ./input.css -o ./src/styles.css"
 	},
 	"dependencies": {
 		"@tailwindcss/cli": "^4.1.13",
+		"concurrently": "^9.2.1",
 		"json-server": "^1.0.0-beta.3",
+		"lite-server": "^2.6.1",
 		"tailwindcss": "^4.1.13"
 	},
 	"devDependencies": {

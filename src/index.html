@@ -5,25 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Da-Shop</title>
+    <base href="/">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </head>
 
-<body onload="_init()" class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col">
     <header class="navbar bg-base-300 shadow-sm">
         <div class="flex-1">
             <a class="btn btn-ghost text-xl">daisyUI</a>
         </div>
         <nav class="flex-none">
             <ul class="menu menu-horizontal px-1">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./pages/about.html">About</a></li>
-                <li><a href="./pages/contact.html">Contact</a></li>
+                <li><a href="./" data-link>Home</a></li>
+                <li><a href="./products" data-link>Products</a></li>
+                <li><a href="./about" data-link>About</a></li>
+                <li><a href="./contact" data-link>Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="w-full bg-neutral-300 flex flex-col flex-1 gap-2 mx-auto  p-6">
+    <main id="content" class="w-full bg-neutral-300 flex flex-col flex-1 gap-2 mx-auto  p-6">
         <h1>Welcome to Da-Shop</h1>
         <p>Your one-stop shop for all things stylish and sustainable.</p>
         <section id="products" class="flex gap-4 mt-8">
