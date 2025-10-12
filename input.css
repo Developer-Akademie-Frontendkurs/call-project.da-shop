@@ -1,2 +1,14 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+    themes: cupcake, dark --default;
+};
+
+@theme {
+    --breakpoint-456: 456px;
+    --breakpoint-576: 576px;
+    --breakpoint-768: 768px;
+    --breakpoint-992: 992px;
+    --breakpoint-1140: 1140px;
+    --breakpoint-1440: 1440px;
+    --breakpoint-1920: 1920px;
+}

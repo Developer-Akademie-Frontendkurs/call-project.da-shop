@@ -1,8 +1,8 @@
 import About from './views/AboutView/About.js';
 import Contact from './views/ContactView/Contact.js';
 import Home from './views/HomeView/Home.js';
-import Products from './views/Products/ProductsView.js';
-import SingleProduct from './views/SingleProduct/SingleProductView.js';
+import Products from './views/ProductsView/Products.js';
+import SingleProduct from './views/SingleProductView/SingleProduct.js';
 
 /**
  * Converts a path string with parameters (e.g., "/user/:id") into a regular expression.
@@ -20,7 +20,6 @@ import SingleProduct from './views/SingleProduct/SingleProductView.js';
  * pathToRegex('/user/:id');
  */
 const pathToRegex = (path) => new RegExp(`^${path.replace(/\//g, '\\/').replace(/:\w+/g, '(.+)')}$`);
-
 
 /**
  * Extracts route parameters from a match object.
@@ -58,8 +57,8 @@ const router = async () => {
     const potentialMatches = routes.map((route) => {
         return {
             route: route,
-            result: location.pathname.match(pathToRegex(route.path))
-        }
+            result: location.pathname.match(pathToRegex(route.path)),
+        };
     });
 
     let match = potentialMatches.find((potentialMatch) => potentialMatch.result !== null);
@@ -68,15 +67,15 @@ const router = async () => {
         console.error('No matching route found for: ', location.pathname);
         match = {
             route: routes[0],
-            result: true
-        }
+            result: true,
+        };
     }
 
     const view = new match.route.view(getParams(match));
     document.getElementById('content').innerHTML = await view.getHTML();
-}
+};
 
-window.addEventListener('popstate', router)
+window.addEventListener('popstate', router);
 
 document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (event) => {
@@ -85,6 +84,28 @@ document.addEventListener('DOMContentLoaded', () => {
             navigateTo(event.target.href);
         }
     });
+
+    router();
 });
 
-router();
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const themeController = document.querySelector('.theme-controller');
+
+    themeController.addEventListener('change', function () {
+        if (this.checked) {
+            document.documentElement.setAttribute('data-theme', 'cupcake');
+            localStorage.setItem('theme', 'cupcake');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (savedTheme === 'dark') {
+            themeController.checked = false;
+        }
+    }
+});
