@@ -18,7 +18,7 @@
 	},
 	"license": "MIT",
 	"author": "Developer Akademie Students",
-	"type": "commonjs",
+	"type": "module",
 	"main": "index.js",
 	"scripts": {
 		"dev": "concurrently \"tailwindcss -i ./input.css -o ./src/styles.css --watch\" \"lite-server\" \"json-server --watch ./src/backend/db.json\"",

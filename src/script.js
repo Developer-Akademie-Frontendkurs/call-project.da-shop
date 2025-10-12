@@ -4,23 +4,45 @@ import Home from './views/HomeView/Home.js';
 import Products from './views/Products/ProductsView.js';
 import SingleProduct from './views/SingleProduct/SingleProductView.js';
 
+/**
+ * Converts a path string with parameters (e.g., "/user/:id") into a regular expression.
+ *
+ * The generated regex matches the entire path and captures parameter values.
+ * - Slashes ("/") are escaped to "\/" for regex compatibility.
+ * - Path parameters (e.g., ":id") are replaced with "(.+)" to capture any value.
+ * - The regex is anchored to the start (^) and end ($) of the string.
+ *
+ * @param {string} path - The path pattern, potentially containing parameters prefixed with ":".
+ * @returns {RegExp} A regular expression that matches the given path and captures parameter values.
+ *
+ * @example
+ * // Returns /^\/user\/(.+)$/
+ * pathToRegex('/user/:id');
+ */
 const pathToRegex = (path) => new RegExp(`^${path.replace(/\//g, '\\/').replace(/:\w+/g, '(.+)')}$`);
 
+
+/**
+ * Extracts route parameters from a match object.
+ *
+ * @param {Object} match - The match object containing route and result information.
+ * @param {Object} match.route - The route object with a path string containing parameter names (e.g., '/user/:id').
+ * @param {string} match.route.path - The route path string with parameter placeholders.
+ * @param {Array} match.result - The array of matched values, where the first element is the full match and subsequent elements are parameter values.
+ * @returns {Object} An object mapping parameter names to their corresponding values from the match.
+ */
 const getParams = (match) => {
-    const values = match.result.slice(1)
+    const values = match.result.slice(1);
     const keys = Array.from(match.route.path.matchAll(/:(\w+)/g).map((result) => result[1]));
-    console.log('🔧 Extracted Params:', { keys: keys, values: values });
     return Object.fromEntries(
         keys.map((key, index) => {
             return [key, values[index]];
         })
-    )
-}
+    );
+};
 
 const navigateTo = (url) => {
-    // Ändert die URL in der Adressleiste, ohne die Seite neu zu laden.
     history.pushState(null, null, url);
-    // Ruft den Router auf, um den Inhalt der Seite entsprechend der neuen URL zu aktualisieren.
     router();
 };
 
@@ -52,12 +74,6 @@ const router = async () => {
 
     const view = new match.route.view(getParams(match));
     document.getElementById('content').innerHTML = await view.getHTML();
-
-    console.log('potential matches: ', potentialMatches);
-    console.log('matched route: ', match);
-    console.log('current path from match: ', match ? match.route.path : 'no match found');
-    // console.log('match view: ', match.route.view());
-    console.log('current path from location: ', location.pathname);
 }
 
 window.addEventListener('popstate', router)
