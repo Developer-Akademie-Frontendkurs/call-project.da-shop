@@ -94,11 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     themeController.addEventListener('change', function () {
         if (this.checked) {
-            document.documentElement.setAttribute('data-theme', 'cupcake');
-            localStorage.setItem('theme', 'cupcake');
+            document.documentElement.setAttribute('data-theme', 'ds-light');
+            localStorage.setItem('theme', 'ds-light');
         } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
+            document.documentElement.setAttribute('data-theme', 'ds-dark');
+            localStorage.setItem('theme', 'ds-dark');
         }
     });
 
