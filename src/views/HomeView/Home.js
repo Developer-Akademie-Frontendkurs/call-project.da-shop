@@ -31,6 +31,7 @@ export default class extends AbstractView {
         return /*html*/ `
             <h1>Welcome to Da-Shop</h1>
             <p>Your one-stop shop for all things stylish and sustainable.</p>
+                    <div class="btn btn-secondary">Shop Now</div>
                     <div class="btn btn-primary">Shop Now</div>
 
             <section class="flex flex-col gap-4 mt-8">
