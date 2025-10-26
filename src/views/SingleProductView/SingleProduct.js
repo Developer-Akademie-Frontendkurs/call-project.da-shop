@@ -30,7 +30,7 @@ export default class extends AbstractView {
      * @returns {Promise<void>} Resolves when the product data has been fetched and assigned.
      */
     async getProduct(productId) {
-        const response = await fetch(`http://localhost:3000/products/${productId}`);
+        const response = await fetch(`http://localhost:8000/products/${productId}`);
         const responseAsJson = await response.json();
         this.product = responseAsJson;
         console.log('product: ', this.product);

@@ -21,8 +21,8 @@
 	"type": "module",
 	"main": "index.js",
 	"scripts": {
-		"dev": "concurrently \"tailwindcss -i ./input.css -o ./src/styles.css --watch\" \"lite-server\" \"json-server --watch ./src/backend/db.json\"",
-	"build": "tailwindcss -i ./input.css -o ./src/styles.css"
+		"dev": "concurrently \"tailwindcss -i ./input.css -o ./src/styles.css --watch\" \"lite-server -c ./bs-config.json\" \"json-server --watch ./src/backend/db.json --port 8000\"",
+		"build": "tailwindcss -i ./input.css -o ./src/styles.css"
 	},
 	"dependencies": {
 		"@tailwindcss/cli": "^4.1.13",

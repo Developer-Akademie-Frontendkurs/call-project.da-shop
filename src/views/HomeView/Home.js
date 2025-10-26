@@ -10,7 +10,7 @@ export default class extends AbstractView {
     }
 
     async getProducts() {
-        const response = await fetch('http://localhost:3000/products');
+        const response = await fetch('http://localhost:8000/products');
         const responseAsJson = await response.json();
         this.products = responseAsJson;
         console.log('products: ', this.products)
