@@ -34,7 +34,7 @@ export default class extends AbstractView {
                     <div class="btn btn-secondary">Shop Now</div>
                     <div class="btn btn-primary">Shop Now</div>
 
-            <section class="flex flex-col gap-4 mt-8">
+            <section class="flex flex-col gap-4 mt-8 text-18">
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos inventore quis quos dolorum totam? Debitis molestiae dignissimos repellendus corporis enim, fuga sapiente impedit dolore a ducimus tempore excepturi. Quasi, magnam.</p>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos inventore quis quos dolorum totam? Debitis molestiae dignissimos repellendus corporis enim, fuga sapiente impedit dolore a ducimus tempore excepturi. Quasi, magnam.</p>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos inventore quis quos dolorum totam? Debitis molestiae dignissimos repellendus corporis enim, fuga sapiente impedit dolore a ducimus tempore excepturi. Quasi, magnam.</p>
@@ -44,7 +44,7 @@ export default class extends AbstractView {
                     </figure>
                     <div class="card-body bg-base-300">
                         <h2 class="card-title">Card Title</h2>
-                        <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                        <p class="text-16 text-stone-700 dark:text-stone-400">A card component has a figure, a body part, and inside body there are title and actions parts</p>
                         <div class="card-actions justify-end">
                             <button class="btn btn-primary">Buy Now</button>
                         </div>
