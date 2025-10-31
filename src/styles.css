@@ -15,10 +15,12 @@
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --font-weight-semibold: 600;
+    --font-weight-black: 900;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --text-16: 1rem;
     --text-18: 1.125rem;
+    --text-36: 2.25rem;
   }
 }
 @layer base {
@@ -1608,6 +1610,13 @@
   }
   .text-18 {
     font-size: var(--text-18);
+  }
+  .text-36 {
+    font-size: var(--text-36);
+  }
+  .font-black {
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
   }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);

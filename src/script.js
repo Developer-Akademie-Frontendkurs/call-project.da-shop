@@ -1,3 +1,4 @@
+import NotFound from './views/404View/NotFound.js';
 import About from './views/AboutView/About.js';
 import Contact from './views/ContactView/Contact.js';
 import Home from './views/HomeView/Home.js';
@@ -48,6 +49,7 @@ const navigateTo = (url) => {
 const router = async () => {
     const routes = [
         { path: '/', view: Home },
+        { path: '/404', view: NotFound },
         { path: '/products', view: Products },
         { path: '/products/:id', view: SingleProduct },
         { path: '/about', view: About },
@@ -61,14 +63,10 @@ const router = async () => {
         };
     });
 
-    let match = potentialMatches.find((potentialMatch) => potentialMatch.result !== null);
+    const match = potentialMatches.find((potentialMatch) => potentialMatch.result !== null);
 
     if (!match) {
-        console.error('No matching route found for: ', location.pathname);
-        match = {
-            route: routes[0],
-            result: true,
-        };
+        navigateTo('/404');
     }
 
     const view = new match.route.view(getParams(match));
