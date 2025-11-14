@@ -86,24 +86,65 @@ document.addEventListener('DOMContentLoaded', () => {
     router();
 });
 
+// Theme change
 document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    const themeController = document.querySelector('.theme-controller');
+    const themeControllers = document.querySelectorAll('.theme-controller');
+    const savedTheme = localStorage.getItem('theme') || 'ds-dark';
 
-    themeController.addEventListener('change', function () {
-        if (this.checked) {
-            document.documentElement.setAttribute('data-theme', 'ds-light');
-            localStorage.setItem('theme', 'ds-light');
+    const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        const isLight = theme === 'ds-light';
+        themeControllers.forEach((controller) => {
+            controller.checked = isLight;
+        });
+    };
+
+    themeControllers.forEach((controller) => {
+        controller.addEventListener('change', function () {
+            const newTheme = this.checked ? 'ds-light' : 'ds-dark';
+            applyTheme(newTheme);
+        });
+    });
+    applyTheme(savedTheme);
+});
+
+// Mobile menu functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenuCheckbox = document.getElementById('mobile-menu-checkbox');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+    const toggleMobileMenu = () => {
+        if (mobileMenuCheckbox.checked) {
+            mobileMenu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
         } else {
-            document.documentElement.setAttribute('data-theme', 'ds-dark');
-            localStorage.setItem('theme', 'ds-dark');
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
         }
+    };
+
+    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+
+    mobileMenuClose.addEventListener('click', () => {
+        mobileMenuCheckbox.checked = false;
+        toggleMobileMenu();
     });
 
-    if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        if (savedTheme === 'dark') {
-            themeController.checked = false;
+    const mobileMenuLinks = mobileMenu.querySelectorAll('[data-link]');
+    mobileMenuLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            mobileMenuCheckbox.checked = false;
+            toggleMobileMenu();
+        });
+    });
+
+    mobileMenu.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) {
+            mobileMenuCheckbox.checked = false;
+            toggleMobileMenu();
         }
-    }
+    });
 });
