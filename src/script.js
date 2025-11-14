@@ -1,5 +1,8 @@
 import NotFound from './views/404View/NotFound.js';
 import About from './views/AboutView/About.js';
+import AdminLogin from './views/admin/AdminLoginView/AdminLogin.js';
+import AdminProducts from './views/admin/AdminProductsView/AdminProducts.js';
+import AdminSingleProducts from './views/admin/AdminSingleProductView/AdminSingleProduct.js';
 import Contact from './views/ContactView/Contact.js';
 import Home from './views/HomeView/Home.js';
 import Products from './views/ProductsView/Products.js';
@@ -54,6 +57,9 @@ const router = async () => {
         { path: '/products/:id', view: SingleProduct },
         { path: '/about', view: About },
         { path: '/contact', view: Contact },
+        { path: '/admin/', view: AdminLogin },
+        { path: '/admin/products', view: AdminProducts },
+        { path: '/admin/products/:id', view: AdminSingleProducts },
     ];
 
     const potentialMatches = routes.map((route) => {
