@@ -1,0 +1,9 @@
+@layer base {
+    h1 {
+        font-size: var(--text-36);
+    }
+
+    h2 {
+    font-size: var(--text-30);
+    }
+}

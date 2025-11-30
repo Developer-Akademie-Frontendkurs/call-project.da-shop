@@ -1,5 +1,0 @@
-@layer components {
-    .h2 {
-        @apply text-36 font-bold;
-    }
-}

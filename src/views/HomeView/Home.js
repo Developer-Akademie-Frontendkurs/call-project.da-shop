@@ -10,7 +10,7 @@ export default class extends AbstractView {
 
     async getHTML() {
         return /*html*/ `
-            <section class="hero h-[calc(100vh-64px)]" style="background-image: url(./assets/img/bg-hero.png);">
+            <section class="hero h-[calc(100vh-64px)] rounded-3xl" style="background-image: url(./assets/img/bg-hero.png);">
                 <div class="hero-overlay rounded-3xl"></div>
                 <div class="hero-content text-neutral-content text-center">
                     <div class="max-w-md">
@@ -24,7 +24,10 @@ export default class extends AbstractView {
                 </div>
             </section>
             <section class="mt-6">
-                <h2 class="h2">New Arrivals</h2>
+                <h1>Test for h1 Heading</h1>
+                <article class="da-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga perspiciatis dolores</article>
+                <article class="da-secondary-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga perspiciatis dolores expedita aperiam veniam natus ipsam nisi harum quisquam minus. Rem iste veniam beatae consequuntur eligendi alias quaerat est voluptas?</article>
+                <h2>New Arrivals</h2>
                 <div>
                     <article>
                         <img src="https://picsum.photos/id/1029/200/200" alt="">

@@ -1,0 +1,17 @@
+@layer components {
+  .da-card {
+    background-color: #ff0000;
+    width: 200px;
+    height: 200px;
+    padding: 2rem;
+    border-radius: var(--radius-3xl);
+    overflow: hidden;
+  }
+
+  .da-secondary-card {
+    background-color: var(--color-success);
+    width: var(--container-2xs);
+    height: 288px;
+    padding: 2rem;
+  }
+}

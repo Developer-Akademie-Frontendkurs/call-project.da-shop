@@ -47,19 +47,18 @@ const routes = [
 
 - If no match exists for a route, navigate to /404
 
-```js
+```diff
 // old code snippet
-
-// if (!match) {
-//     console.error('No matching route found for: ', location.pathname);
-//     match = {
-//         route: routes[0],
-//         result: true,
-//     };
-// }
+- if (!match) {
+-     console.error('No matching route found for: ', location.pathname);
+-     match = {
+-         route: routes[0],
+-         result: true,
+-     };
+- }
 
 // new code snippet
-if (!match) {
-    navigateTo('/404');
-}
++ if (!match) {
++    navigateTo('/404');
++}
 ```

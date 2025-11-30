@@ -1,5 +1,6 @@
 @import "tailwindcss";
-@import "./src/components.css";
+@import "./src/css/_base.css";
+@import "./src/css/_components.css";
 @plugin "daisyui" {
     themes: ds-light, ds-dark --default;
 };

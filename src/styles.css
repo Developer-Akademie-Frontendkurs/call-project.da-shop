@@ -8,6 +8,7 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --spacing: 0.25rem;
+    --container-2xs: 18rem;
     --container-md: 28rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
@@ -1275,11 +1276,28 @@
     }
   }
 }
-@layer components {
-  .h2 {
+@layer base {
+  h1 {
     font-size: var(--text-36);
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
+  }
+  h2 {
+    font-size: var(--text-30);
+  }
+}
+@layer components {
+  .da-card {
+    background-color: #ff0000;
+    width: 200px;
+    height: 200px;
+    padding: 2rem;
+    border-radius: var(--radius-3xl);
+    overflow: hidden;
+  }
+  .da-secondary-card {
+    background-color: var(--color-success);
+    width: var(--container-2xs);
+    height: 288px;
+    padding: 2rem;
   }
 }
 @layer base {

@@ -2,6 +2,12 @@
 
 - [Create color patterns with daisyUI](#create-color-patterns-with-daisyui)
 - [Add `Hero` Section and `New Arrivals` Section to Home.js](#add-hero-section-and-new-arrivals-section-to-homejs)
+- [Create and use custom tailwind components](#create-and-use-custom-tailwind-components)
+  - [Introduction](#introduction)
+  - [Own CSS classes](#own-css-classes)
+  - [Custom base styles in tailwind](#custom-base-styles-in-tailwind)
+  - [Custom design components in tailwind](#custom-design-components-in-tailwind)
+- [Links](#links)
 
 ## Create color patterns with daisyUI
 
@@ -162,3 +168,73 @@ async getHTML() {
         `;
     }
 ```
+
+## Create and use custom tailwind components
+
+### Introduction
+
+tailwind works with so-called “utility classes” to use predefined CSS styles. daisyUI weaves these classes together in the background to create design components that we as developers can use and customize.
+
+We can also define such “utility classes” or “component classes” ourselves. This makes sense if we want to use certain properties or components multiple times in our project. tailwind essentially distinguishes between “base styles” and “component classes” here.
+
+### Own CSS classes
+
+- Of course, it is also possible to create your own CSS classes with Tailwind.
+- It is important to ensure that the name is not also used by Tailwind.
+- We could define these classes directly in our `import.css`. However, for reasons of clarity and clean code, it is advisable to use a separate file for this.
+
+```css
+.my-custom-class {
+    background-color: white;
+    color: black;
+}
+```
+
+### Custom base styles in tailwind
+
+- used to assign the same CSS properties to HTML elements. For example, headings, paragraphs, etc.
+- the advantage of this is that we can adjust all headings of a certain order in one step, for example.
+- create a new folder in the `src` folder `css`
+- in this new folder create a new file called `_base.css`
+- In this file you can define your own base styles e.g. for a `h2` element
+- It is, of course, possible to use our CSS variables defined earlier in `input.css` in these base classes.
+
+```css
+@layer base {
+  h1 {
+    font-size: var(--text-36)
+  }
+
+  h2 {
+    font-size: var(--text-30);
+  }
+}
+```
+
+### Custom design components in tailwind
+
+- used to assign for more complex classes
+- possible to overwrite single properties with utility classes
+- usecases are card, buttons, badges and more
+- create a new file `_components.css` in the `./src/css` folder
+
+```css
+@layer components {
+  .da-card {
+    background-color: #ff0000;
+    width: 200px;
+    height: 200px;
+    border-radius: var(--radius-3xl)
+  }
+
+  .da-secondary-card {
+    background-color: var(--color-success);
+    width: var(--container-2xs);
+    height: 288px
+  }
+}
+```
+
+## Links
+
+- [Adding custom styles in tailwind](https://tailwindcss.com/docs/adding-custom-styles)
