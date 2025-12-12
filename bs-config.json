@@ -1,9 +1,13 @@
 {
+	"port": 5500,
+	"files": ["./src/**/*.{html,htm,css,js}"],
 	"server": {
-		"port": 5500,
 		"baseDir": "./src",
 		"routes": {
 			"/products/:id": "index.html"
 		}
+	},
+	"ui": {
+		"port": 5501
 	}
 }
