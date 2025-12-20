@@ -10,7 +10,7 @@ export default class extends AbstractView {
     async getHTML() {
         return /*html*/ `
             <header class="navbar bg-base-200 shadow-sm">
-                <div class="w-full max-w-480 flex justify-between items-center mx-auto px-8">
+                <div class="w-full max-w-[1440px] flex justify-between items-center mx-auto px-8">
                     <div class="flex-1">
                         <a class="text-xl">da Shop</a>
                     </div>
@@ -93,7 +93,7 @@ export default class extends AbstractView {
                 </div>
             </header>
 
-            <main id="content" class="w-full max-w-480 flex flex-col flex-1 gap-2 mx-auto p-8">
+            <main id="content" class="w-full max-w-[1440px]  flex flex-col flex-1 gap-2 mx-auto p-8">
 
             </main>
 
