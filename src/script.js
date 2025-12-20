@@ -1,3 +1,5 @@
+import AdminLayout from './shared/admin-layout.js';
+import ShopLayout from './shared/shop-layout.js';
 import NotFound from './views/404View/NotFound.js';
 import About from './views/AboutView/About.js';
 import AdminLogin from './views/admin/AdminLoginView/AdminLogin.js';
@@ -50,6 +52,18 @@ const navigateTo = (url) => {
 };
 
 const router = async () => {
+    const app = document.getElementById('app');
+    const path = window.location.pathname;
+
+    if (path === '/admin/') {
+        navigateTo('/admin');
+        return
+    } else if (path === '/admin') {
+        app.innerHTML = await new AdminLayout().getHTML();
+    } else {
+        app.innerHTML = await new ShopLayout().getHTML();
+    }
+
     const routes = [
         { path: '/', view: Home },
         { path: '/404', view: NotFound },
@@ -57,7 +71,7 @@ const router = async () => {
         { path: '/products/:id', view: SingleProduct },
         { path: '/about', view: About },
         { path: '/contact', view: Contact },
-        { path: '/admin/', view: AdminLogin },
+        { path: '/admin', view: AdminLogin },
         { path: '/admin/products', view: AdminProducts },
         { path: '/admin/products/:id', view: AdminSingleProducts },
     ];
