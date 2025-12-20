@@ -347,9 +347,30 @@ The inner body area in the HTML file is now loaded via the corresponding layout 
 - New file structure of `./src/index.html`
 
 ```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Da-Shop</title>
+    <base href="/">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js"></script>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+    <div id="app"></div>
+
+</body>
+
+</html>
 
 ```
 
 #### Summary – What exactly is happening here?
 
 What's happening here? Basically, the views are nested within each other. First, the respective area view is rendered into the parent index.html. Then, the respective view for the area is rendered into the layout view.
+
+![area-view](./assets/img/007_area-view.png)
