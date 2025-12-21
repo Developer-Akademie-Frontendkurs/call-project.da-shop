@@ -10,7 +10,7 @@ export default class extends AbstractView {
     async getHTML() {
         return /*html*/ `
             <header class="navbar bg-base-200 shadow-sm">
-                <div class="w-full max-w-480 flex justify-between items-center mx-auto px-8">
+                <div class="w-full max-w-[1440px] flex justify-between items-center mx-auto px-8">
                     <div class="flex-1">
                         <a class="text-xl">da Shop Admin</a>
                     </div>
@@ -43,10 +43,7 @@ export default class extends AbstractView {
                         </button>
 
                         <nav class="flex flex-col items-center space-y-8">
-                            <a href="./" data-link class="text-2xl font-semibold hover:text-primary transition-colors">Home</a>
-                            <a href="./products" data-link class="text-2xl font-semibold hover:text-primary transition-colors">Products</a>
-                            <a href="./about" data-link class="text-2xl font-semibold hover:text-primary transition-colors">About</a>
-                            <a href="./contact" data-link class="text-2xl font-semibold hover:text-primary transition-colors">Contact</a>
+                            <a href="./" data-link class="text-2xl font-semibold hover:text-primary transition-colors">Shop</a>
 
                             <!-- Theme Toggle for Mobile -->
                             <label class="swap swap-rotate">
@@ -67,10 +64,7 @@ export default class extends AbstractView {
 
                     <nav class="flex-none hidden 576:block">
                         <ul class="menu menu-horizontal items-center py-0 px-1">
-                            <li><a href="./" data-link>Home</a></li>
-                            <li><a href="./products" data-link>Products</a></li>
-                            <li><a href="./about" data-link>About</a></li>
-                            <li><a href="./contact" data-link>Contact</a></li>
+                            <li><a href="./" data-link>Shop</a></li>
                             <li>
                                 <label class="swap swap-rotate">
                                     <input type="checkbox" class="theme-controller" value="synthwave" />
@@ -93,7 +87,7 @@ export default class extends AbstractView {
                 </div>
             </header>
 
-            <main id="content" class="w-full max-w-480 flex flex-col flex-1 gap-2 mx-auto p-8">
+            <main id="content" class="w-full max-w-[1440px] min-h-[calc(100vh-116px)] flex flex-col flex-1 gap-2 mx-auto p-8">
 
             </main>
 

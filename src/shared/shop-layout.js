@@ -93,7 +93,7 @@ export default class extends AbstractView {
                 </div>
             </header>
 
-            <main id="content" class="w-full max-w-[1440px]  flex flex-col flex-1 gap-2 mx-auto p-8">
+            <main id="content" class="w-full max-w-[1440px] min-h-[calc(100vh-116px)] flex flex-col flex-1 gap-2 mx-auto p-8">
 
             </main>
 
