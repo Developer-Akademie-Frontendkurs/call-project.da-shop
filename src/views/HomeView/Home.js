@@ -6,6 +6,32 @@ export default class extends AbstractView {
     constructor() {
         super();
         this.setTitle('Home');
+        this.loadNewsletterSection();
+    }
+
+    loadNewsletterSection() {
+        const footer = document.querySelector('footer.footer');
+        const newsletterSection = document.createElement('section');
+        newsletterSection.classList.add('bg-base-200');
+        newsletterSection.innerHTML = /*html*/ `
+            <div class="max-w-[1440px] mx-auto py-20 px-8">
+                <h2 class="mb-4">Newsletter</h2>
+                <div>
+                    <p>Subscribe to our newsletter to receive the latest updates and offers.</p>
+                    <form class="mt-4 flex flex-col sm:flex-row gap-4">
+                        <input type="email" placeholder="Enter your email" class="input input-bordered w-full sm:w-auto flex-1" required />
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" required class="checkbox checkbox-primary" />
+                            <span>
+                                I accept the <a href="/privacy-policy" class="link link-primary" target="_blank">privacy policy</a>
+                            </span>
+                        </label>
+                        <button type="submit" class="btn btn-accent">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        `;
+        footer.insertAdjacentElement('beforebegin', newsletterSection);
     }
 
     async getHTML() {
@@ -172,13 +198,6 @@ export default class extends AbstractView {
                             </div>
                         </div>
                     </article>
-                </div>
-            </section>
-
-            <section class="mb-16">
-                <h2 class="mb-4">Newsletter</h2>
-                <div id="new-arrivals" class="flex gap-8">
-
                 </div>
             </section>
         `;
