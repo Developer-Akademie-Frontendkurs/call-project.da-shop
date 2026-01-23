@@ -17,3 +17,4 @@
 - [First Design Implementations](./_project-diary/005_first-design-steps.md)
 - [Add first admin views](./_project-diary/006_add-first-admin-views.md)
 - [Create admin area with route](./_project-diary/007_create-admin-area-with-routes.md)
+- [Implementation admin dashboard view](./_project-diary/008_implementation-admin-dashboard-view.md)

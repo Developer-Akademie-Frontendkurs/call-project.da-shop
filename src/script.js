@@ -2,6 +2,7 @@ import AdminLayout from './shared/admin-layout.js';
 import ShopLayout from './shared/shop-layout.js';
 import NotFound from './views/404View/NotFound.js';
 import About from './views/AboutView/About.js';
+import AdminDashboard from './views/admin/AdminDashboardView/AdminDashboard.js';
 import AdminLogin from './views/admin/AdminLoginView/AdminLogin.js';
 import AdminProducts from './views/admin/AdminProductsView/AdminProducts.js';
 import AdminSingleProducts from './views/admin/AdminSingleProductView/AdminSingleProduct.js';
@@ -55,10 +56,11 @@ const router = async () => {
     const app = document.getElementById('app');
     const path = window.location.pathname;
 
+    // BUG Url / ending
     if (path === '/admin/') {
         navigateTo('/admin');
         return
-    } else if (path === '/admin') {
+    } else if (path.includes('/admin')) {
         app.innerHTML = await new AdminLayout().getHTML();
     } else {
         app.innerHTML = await new ShopLayout().getHTML();
@@ -71,7 +73,8 @@ const router = async () => {
         { path: '/products/:id', view: SingleProduct },
         { path: '/about', view: About },
         { path: '/contact', view: Contact },
-        { path: '/admin', view: AdminLogin },
+        { path: '/admin', view: AdminDashboard },
+        { path: '/admin/login', view: AdminLogin },
         { path: '/admin/products', view: AdminProducts },
         { path: '/admin/products/:id', view: AdminSingleProducts },
     ];

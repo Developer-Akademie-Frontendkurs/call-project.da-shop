@@ -1,4 +1,5 @@
 import AbstractView from '../../AbstractView.js';
+import { isAdminloggedIn } from '../admin.js';
 
 export default class extends AbstractView {
     products = [];
@@ -6,6 +7,7 @@ export default class extends AbstractView {
     constructor() {
         super();
         this.setTitle('Products');
+        isAdminloggedIn();
     }
 
     async getHTML() {
