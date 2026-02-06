@@ -7,7 +7,6 @@ export default class extends AbstractView {
     constructor() {
         super();
         this.setTitle('Products');
-        isAdminloggedIn();
     }
 
     async getHTML() {

@@ -2,6 +2,7 @@ import AdminLayout from './shared/admin-layout.js';
 import ShopLayout from './shared/shop-layout.js';
 import NotFound from './views/404View/NotFound.js';
 import About from './views/AboutView/About.js';
+import { isAdminloggedIn } from './views/admin/admin.js';
 import AdminDashboard from './views/admin/AdminDashboardView/AdminDashboard.js';
 import AdminLogin from './views/admin/AdminLoginView/AdminLogin.js';
 import AdminProducts from './views/admin/AdminProductsView/AdminProducts.js';
@@ -59,7 +60,7 @@ const router = async () => {
     // BUG Url / ending
     if (path === '/admin/') {
         navigateTo('/admin');
-        return
+        return;
     } else if (path.includes('/admin')) {
         app.innerHTML = await new AdminLayout().getHTML();
     } else {
@@ -73,10 +74,10 @@ const router = async () => {
         { path: '/products/:id', view: SingleProduct },
         { path: '/about', view: About },
         { path: '/contact', view: Contact },
-        { path: '/admin', view: AdminDashboard },
+        { path: '/admin', view: AdminDashboard, protected: true },
         { path: '/admin/login', view: AdminLogin },
-        { path: '/admin/products', view: AdminProducts },
-        { path: '/admin/products/:id', view: AdminSingleProducts },
+        { path: '/admin/products', view: AdminProducts, protected: true },
+        { path: '/admin/products/:id', view: AdminSingleProducts, protected: true },
     ];
 
     const potentialMatches = routes.map((route) => {
@@ -86,10 +87,18 @@ const router = async () => {
         };
     });
 
-    const match = potentialMatches.find((potentialMatch) => potentialMatch.result !== null);
+    let match = potentialMatches.find((potentialMatch) => potentialMatch.result !== null);
 
     if (!match) {
-        navigateTo('/404');
+        match = {
+            route: routes[1],
+            result: [location.pathname],
+        };
+    }
+
+    if (match.route.protected && !isAdminloggedIn()) {
+        navigateTo('/admin/login');
+        return;
     }
 
     const view = new match.route.view(getParams(match));
