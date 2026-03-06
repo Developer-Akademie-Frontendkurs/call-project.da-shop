@@ -24,5 +24,17 @@
             "catagory": "Accessoires",
             "price": 79.99
         }
+    ],
+    "employees": [
+        {
+            "id": 0,
+            "username": "Peter Pan",
+            "password": "admin",
+            "first_name": "Peter",
+            "last_name": "Pan",
+            "position": "Customer Support",
+            "email": "peter.pan@example.com",
+            "superuser": false
+        }
     ]
 }

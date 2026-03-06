@@ -1,4 +1,5 @@
 import AbstractView from '../../AbstractView.js';
+import { isAdminloggedIn } from '../admin.js';
 
 export default class extends AbstractView {
     products = [];

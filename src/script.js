@@ -2,6 +2,9 @@ import AdminLayout from './shared/admin-layout.js';
 import ShopLayout from './shared/shop-layout.js';
 import NotFound from './views/404View/NotFound.js';
 import About from './views/AboutView/About.js';
+import { isAdminloggedIn } from './views/admin/admin.js';
+import AdminDashboard from './views/admin/AdminDashboardView/AdminDashboard.js';
+import AdminEmployeesView from './views/admin/AdminEmployeesView/AdminEmployees.js';
 import AdminLogin from './views/admin/AdminLoginView/AdminLogin.js';
 import AdminProducts from './views/admin/AdminProductsView/AdminProducts.js';
 import AdminSingleProducts from './views/admin/AdminSingleProductView/AdminSingleProduct.js';
@@ -55,10 +58,11 @@ const router = async () => {
     const app = document.getElementById('app');
     const path = window.location.pathname;
 
+    // BUG Url / ending
     if (path === '/admin/') {
         navigateTo('/admin');
-        return
-    } else if (path === '/admin') {
+        return;
+    } else if (path.includes('/admin')) {
         app.innerHTML = await new AdminLayout().getHTML();
     } else {
         app.innerHTML = await new ShopLayout().getHTML();
@@ -71,9 +75,11 @@ const router = async () => {
         { path: '/products/:id', view: SingleProduct },
         { path: '/about', view: About },
         { path: '/contact', view: Contact },
-        { path: '/admin', view: AdminLogin },
-        { path: '/admin/products', view: AdminProducts },
-        { path: '/admin/products/:id', view: AdminSingleProducts },
+        { path: '/admin', view: AdminDashboard, protected: true },
+        { path: '/admin/employees', view: AdminEmployeesView, protected: true },
+        { path: '/admin/login', view: AdminLogin },
+        { path: '/admin/products', view: AdminProducts, protected: true },
+        { path: '/admin/products/:id', view: AdminSingleProducts, protected: true },
     ];
 
     const potentialMatches = routes.map((route) => {
@@ -83,10 +89,18 @@ const router = async () => {
         };
     });
 
-    const match = potentialMatches.find((potentialMatch) => potentialMatch.result !== null);
+    let match = potentialMatches.find((potentialMatch) => potentialMatch.result !== null);
 
     if (!match) {
-        navigateTo('/404');
+        match = {
+            route: routes[1],
+            result: [location.pathname],
+        };
+    }
+
+    if (match.route.protected && !isAdminloggedIn()) {
+        navigateTo('/admin/login');
+        return;
     }
 
     const view = new match.route.view(getParams(match));
