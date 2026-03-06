@@ -4,6 +4,7 @@ import NotFound from './views/404View/NotFound.js';
 import About from './views/AboutView/About.js';
 import { isAdminloggedIn } from './views/admin/admin.js';
 import AdminDashboard from './views/admin/AdminDashboardView/AdminDashboard.js';
+import AdminEmployeesView from './views/admin/AdminEmployeesView/AdminEmployees.js';
 import AdminLogin from './views/admin/AdminLoginView/AdminLogin.js';
 import AdminProducts from './views/admin/AdminProductsView/AdminProducts.js';
 import AdminSingleProducts from './views/admin/AdminSingleProductView/AdminSingleProduct.js';
@@ -75,6 +76,7 @@ const router = async () => {
         { path: '/about', view: About },
         { path: '/contact', view: Contact },
         { path: '/admin', view: AdminDashboard, protected: true },
+        { path: '/admin/employees', view: AdminEmployeesView, protected: true },
         { path: '/admin/login', view: AdminLogin },
         { path: '/admin/products', view: AdminProducts, protected: true },
         { path: '/admin/products/:id', view: AdminSingleProducts, protected: true },

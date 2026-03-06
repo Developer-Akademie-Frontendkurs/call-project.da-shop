@@ -9,8 +9,18 @@ export default class extends AbstractView {
     }
 
     onLogin() {
-        document.cookie = "admin=true; path=/";
-        window.location.href = '/admin';
+        console.log('Login button clicked');
+
+
+        // document.cookie = "admin=true; path=/";
+        // window.location.href = '/admin';
+    }
+
+    validateEmployeeData() {
+        const loginData = document.forms['loginForm'];
+        const username = loginForm['username'].value;
+        const password = loginForm['password'].value;
+        const employee = 0
     }
 
     async getHTML() {
@@ -29,11 +39,13 @@ export default class extends AbstractView {
                     </figure>
                     <div class="card-body flex items-center justify-center gap-6">
                         <h1 class="card-title">da-shop - Admin Login</h1>
-                        <input type="text" placeholder="Username" class="input input-bordered w-full max-w-xs" />
-                        <input type="password" placeholder="Password" class="input input-bordered w-full max-w-xs" />
-                        <div class="card-actions justify-end">
-                            <button id="loginBtn" class="btn btn-primary">Login</button>
-                        </div>
+                        <form name="loginForm" onsubmit="" class="flex flex-col gap-4 w-full max-w-xs">
+                            <input name="username" type="text" placeholder="Username" class="input input-bordered w-full max-w-xs" />
+                            <input type="password" placeholder="Password" class="input input-bordered w-full max-w-xs" />
+                            <div class="card-actions justify-end">
+                                <button id="loginBtn" type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </section>
