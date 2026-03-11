@@ -32,8 +32,18 @@
             "password": "admin",
             "first_name": "Peter",
             "last_name": "Pan",
-            "position": "Customer Support",
+            "role": "Customer Support",
             "email": "peter.pan@example.com",
+            "superuser": true
+        },
+        {
+            "id": 1,
+            "username": "Wendy Darling",
+            "password": "admin",
+            "first_name": "Wendy",
+            "last_name": "Darling",
+            "role": "Marketing Manager",
+            "email": "wendy.darling@example.com",
             "superuser": false
         }
     ]

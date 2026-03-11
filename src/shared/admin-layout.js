@@ -44,6 +44,8 @@ export default class extends AbstractView {
 
                         <nav class="flex flex-col items-center space-y-8">
                             <a href="./admin" data-link class="text-2xl font-semibold hover:text-primary transition-colors">Dashboard</a>
+                            <a href="./admin/products" data-link class="text-2xl font-semibold hover:text-primary transition-colors">Products</a>
+                            <a href="./admin/employees" data-link class="text-2xl font-semibold hover:text-primary transition-colors">Employees</a>
                             <a href="./" data-link class="text-2xl font-semibold hover:text-primary transition-colors">Shop</a>
 
                             <!-- Theme Toggle for Mobile -->
@@ -66,6 +68,8 @@ export default class extends AbstractView {
                     <nav class="flex-none hidden 576:block">
                         <ul class="menu menu-horizontal items-center py-0 px-1">
                             <li><a href="./admin" data-link>Dashboard</a></li>
+                            <li><a href="./admin/products" data-link>Products</a></li>
+                            <li><a href="./admin/employees" data-link>Employees</a></li>
                             <li><a href="./" data-link>Shop</a></li>
                             <li>
                                 <label class="swap swap-rotate">
